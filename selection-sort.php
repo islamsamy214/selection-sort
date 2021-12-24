@@ -3,11 +3,6 @@ class SelectionSort{
     
     private $sorted_array = [];
 
-    public function __construct($array){
-        $this->selectionSort($array);
-        return $this->sorted_array;
-    } 
-
     public function selectionSort($array){
         foreach($array as $element){
             $smallest_element = $this->findSmallestElement($array);
@@ -16,6 +11,8 @@ class SelectionSort{
             $smallest_element_key = array_search($smallest_element,$array);
             array_splice($array,$smallest_element_key,1);
         }
+        
+        return $this->sorted_array;
     }
 
     public function findSmallestElement($array){
@@ -31,7 +28,6 @@ class SelectionSort{
 }
 
 
-$testingObject = new SelectionSort([5,3,7,2,1,9,4,8]);
-
-print_r($testingObject);
+$testingObject = new SelectionSort();
+print_r($testingObject->selectionSort([5,3,7,2,1,9,4,8]));
 ?>
